@@ -1,133 +1,156 @@
 /* Corpo da calculadora */
 body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000;
-    overflow: hidden;
+    margin: 0; /* Remove margens padrão do navegador */
+    padding: 0; /* Remove padding padrão */
+    height: 100vh; /* Define a altura como 100% da altura da janela */
+    display: flex; /* Ativa o Flexbox para alinhar o conteúdo */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    background-color: #353535; /* Define a cor de fundo */
+    overflow: hidden; /* Remove a barra de rolagem caso o conteúdo ultrapasse */
 }
+
+/* Corpo principal da calculadora */
 #cal-body {
-    width: 300px;
-    border-radius: 10px;
-    background: linear-gradient(43deg, rgb(0, 0, 0) 0%, rgb(244, 245, 245) 46%, rgb(195, 196, 192) 100%);
-    box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
-                5px 5px 9px rgba(94, 104, 121, 0.3);
-    padding: 45px;
-    scale: 0.8;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    width: 300px; /* Define a largura da calculadora */
+    border-radius: 10px; /* Arredonda as bordas */
+    background: linear-gradient(43deg, rgb(143, 109, 109) 18%, rgb(170, 133, 175) 46%, #787fc7 100%);
+    /* Gradiente para o fundo */
+    box-shadow: 
+        -5px -5px 15px rgba(255, 0, 0, 0.418), /* Sombra avermelhada na parte superior */
+        5px 5px 15px rgba(0, 94, 255, 0.397), /* Sombra azul na parte inferior */
+        0px 0px 30px rgba(0, 106, 255, 0.308); /* Luz difusa azul ao redor */
+    padding: 45px; /* Espaçamento interno */
+    scale: 0.8; /* Reduz ligeiramente o tamanho */
+    margin: auto; /* Centraliza automaticamente dentro do container */
+    display: flex; /* Ativa o Flexbox */
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    gap: 15px; /* Espaçamento entre os elementos */
 }
 
-/* Campo de entrada */
+/* Campo de entrada (Visor da calculadora) */
 .input input {
-
-   
-    height: 100px;
-    width: 100%;
-    border-radius: 10px;
-    background: #4e4c4c;
-    box-shadow: inset -5px -5px 9px rgba(27, 18, 18, 0.45),
-                inset 5px -5px 9px rgba(94, 104, 121, 0.3);
-    border: none;
-    color: rgb(83, 177, 103);
-    font-size: 1.7rem;
-    padding: 3px;
-    font-family: 'Press Start 2P', sans-serif;
-    text-align: right;
-    text-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff, 0 0 7px #09db37;
-
-    
-    
+    height: 100px; /* Altura do campo */
+    width: 100%; /* Largura total */
+    border-radius: 10px; /* Arredonda os cantos */
+    background: #4e4c4c; /* Cor de fundo */
+    box-shadow: 
+        inset -3px -3px 7px rgba(27, 18, 18, 0.3), /* Sombra interna para o topo */
+        inset 3px 3px 7px rgba(94, 104, 121, 0.3); /* Sombra interna para o fundo */
+    border: none; /* Remove a borda padrão */
+    color: rgb(83, 177, 103); /* Cor do texto */
+    font-size: 1.7rem; /* Tamanho da fonte */
+    padding: 3px; /* Espaçamento interno */
+    font-family: 'Press Start 2P', sans-serif; /* Fonte estilizada */
+    text-align: right; /* Alinha o texto à direita */
+    text-shadow: 
+        0 0 2px #ffffff, /* Efeito de brilho branco */
+        0 0 4px #09db37, 
+        0 0 8px #09db37; /* Efeito neon suavizado */
 }
 
+/* Visor ao receber foco */
 .input input:focus {
-    outline: none;
-    background: #dde1e7;
-    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
-                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+    outline: none; /* Remove a borda azul padrão */
+    background: #dde1e7; /* Muda o fundo para cinza claro */
+    box-shadow: 
+        inset -5px -5px 9px rgba(255, 255, 255, 0.45), /* Sombra interna clara */
+        inset 5px 5px 9px rgba(94, 104, 121, 0.3); /* Sombra interna escura */
 }
 
-/* Botões */
+/* Container dos botões */
 .buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 13px;
+    display: flex; /* Ativa o Flexbox */
+    justify-content: space-between; /* Distribui os botões uniformemente */
+    gap: 13px; /* Espaçamento entre os botões */
 }
 
+/* Estilo geral dos botões */
 .buttons button {
-    cursor: pointer;
-    height: 60px;
-    width: 89px;
-    border: 0;
-    font-size: 2rem;
-    border-radius: 13px;
-    background: #dde1e7;
-    box-shadow: -2px -0px 9px rgba(255, 255, 255, 0.45),
-                1px 1px 1px rgba(94, 104, 121, 0.3);
-    color: rgb(137, 137, 137);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer; /* Altera o cursor para indicar clicável */
+    height: 60px; /* Altura dos botões */
+    width: 89px; /* Largura padrão dos botões */
+    border: 0; /* Remove bordas padrão */
+    font-size: 2rem; /* Define tamanho da fonte */
+    border-radius: 13px; /* Arredonda os cantos */
+    background: radial-gradient(circle at bottom, #e0e0e0, #c0c0c0 70%); /* Gradiente radial */
+    box-shadow: 
+        -2px -2px 5px rgba(107, 87, 87, 0.3), /* Sombra clara no topo */
+        2px 2px 5px rgba(94, 104, 121, 0.2); /* Sombra escura embaixo */
+    color: rgb(48, 40, 40); /* Cor do texto */
+    transition: box-shadow 0.2s ease, transform 0.2s ease; /* Suaviza efeitos de hover e clique */
 }
 
+/* Botões ao receber foco */
 .buttons button:focus {
-    background: #dde1e7;
-    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
-                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+    background: #dde1e7; /* Cor de fundo alterada */
+    box-shadow: 
+        inset -5px -5px 9px rgba(255, 255, 255, 0.3), /* Sombra interna clara */
+        inset 5px 5px 9px rgba(94, 104, 121, 0.2); /* Sombra interna escura */
 }
 
+/* Botões ao serem clicados */
 .buttons button:active {
-    transform: scale(0.95);
-    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
-                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+    transform: scale(0.95); /* Reduz ligeiramente o tamanho */
+    box-shadow: 
+        inset -5px -5px 9px rgba(255, 255, 255, 0.45), /* Sombra interna clara */
+        inset 5px 5px 9px rgba(94, 104, 121, 0.3); /* Sombra interna escura */
 }
 
-/* Botão '0' ajustado */
+/* Botão duplo '0' */
 .buttons button[style*="flex: 2;"] {
-    width: calc(60px * 2 + 15px);
-    text-align: center;
+    width: calc(60px * 2 + 15px); /* Calcula largura para 2 colunas */
+    text-align: center; /* Centraliza o texto */
 }
 
-/* Botões específicos */
+/* Botão 'C' (Limpar) */
 .btn-clear {
     background: #ff6b6b; /* Vermelho */
-    color: white; /* Corrigido para texto branco */
-    box-shadow: -5px -5px 10px rgba(255, 200, 200, 0.6),
-                5px 5px 10px rgba(150, 0, 0, 0.3);
+    color: white; /* Cor do texto */
+    box-shadow: 
+        -3px -3px 8px rgba(255, 200, 200, 0.4), /* Sombra clara */
+        3px 3px 8px rgba(150, 0, 0, 0.2); /* Sombra escura */
 }
 
+/* Botão 'C' ao passar o mouse */
 .btn-clear:hover {
-    background: #ff4c4c;
-    box-shadow: -3px -3px 5px rgba(255, 150, 150, 0.8),
-                3px 3px 5px rgba(150, 0, 0, 0.5);
+    background: #ff4c4c; /* Vermelho mais escuro */
+    box-shadow: 
+        -3px -3px 5px rgba(255, 150, 150, 0.6), /* Sombra clara */
+        3px 3px 5px rgba(150, 0, 0, 0.4); /* Sombra escura */
 }
 
+/* Botão de deletar */
 .btn-delete {
     background: #ffa502; /* Laranja */
-    color: white; /* Corrigido para texto branco */
-    box-shadow: -5px -5px 10px rgba(255, 220, 150, 0.6),
-                5px 5px 10px rgba(200, 100, 0, 0.3);
+    color: white; /* Cor do texto */
+    box-shadow: 
+        -3px -3px 8px rgba(255, 220, 150, 0.4), /* Sombra clara */
+        3px 3px 8px rgba(200, 100, 0, 0.2); /* Sombra escura */
 }
 
+/* Botão de deletar ao passar o mouse */
 .btn-delete:hover {
-    background: #ff8c00;
-    box-shadow: -3px -3px 5px rgba(255, 200, 100, 0.8),
-                3px 3px 5px rgba(200, 80, 0, 0.5);
+    background: #ff8c00; /* Laranja mais escuro */
+    box-shadow: 
+        -3px -3px 5px rgba(255, 200, 100, 0.6), /* Sombra clara */
+        3px 3px 5px rgba(200, 80, 0, 0.4); /* Sombra escura */
 }
 
+/* Botão '=' (Resultado) */
 .btn-equal {
     background: #1eff7c; /* Verde */
-    color: white;
-    flex: 2; /* Ocupa mais espaço */
-    box-shadow: -5px -5px 10px rgba(200, 200, 255, 0.6),
-                5px 5px 10px rgba(0, 0, 150, 0.3);
+    color: white; /* Cor do texto */
+    flex: 2; /* Ocupa duas colunas */
+    box-shadow: 
+        -3px -3px 8px rgba(200, 255, 200, 0.4), /* Sombra clara */
+        3px 3px 8px rgba(0, 150, 0, 0.2); /* Sombra escura */
 }
 
+/* Botão '=' ao passar o mouse */
 .btn-equal:hover {
-    background: #1cd698;
-    box-shadow: -3px -3px 5px rgba(44, 211, 127, 0.8),
-                3px 3px 5px rgba(18, 54, 43, 0.5);
+    background: #1cd698; /* Verde mais escuro */
+    box-shadow: 
+        -3px -3px 5px rgba(44, 211, 127, 0.6), /* Sombra clara */
+        3px 3px 5px rgba(18, 54, 43, 0.4); /* Sombra escura */
 }
