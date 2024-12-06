@@ -1,3 +1,7 @@
+/**
+ * Adiciona valores ao campo de entrada
+ * @param {string} value Valor a ser adicionado
+ */
 function appendValue(value) {
     const resultField = document.getElementById('result');
 
@@ -6,39 +10,47 @@ function appendValue(value) {
         resultField.value = '';
     }
 
-    // Verifica se o valor é um sinal
+    // Verifica se o valor é um operador
     const isOperator = ['+', '-', '*', '/'].includes(value);
 
     if (isOperator) {
-        // Evita adicionar um sinal se o campo estiver vazio ou já terminar com um sinal
+        // Impede sinais consecutivos ou no início
         if (resultField.value === '' || ['+', '-', '*', '/'].includes(resultField.value.slice(-1))) {
             return;
         }
     }
 
-    // Adiciona o valor ao campo
-    resultField.value += value;
+    resultField.value += value; // Adiciona o valor
 }
 
+/**
+ * Limpa o campo de entrada
+ */
 function clearResult() {
     const resultField = document.getElementById('result');
     resultField.value = '';
 }
 
+/**
+ * Apaga o último caractere do campo de entrada
+ */
 function deleteLast() {
     const resultField = document.getElementById('result');
     if (resultField.value === 'Erro') {
-        resultField.value = ''; // Limpa a mensagem de erro ao pressionar delete
+        resultField.value = '';
     } else {
         resultField.value = resultField.value.slice(0, -1);
     }
 }
 
+/**
+ * Calcula o resultado da expressão
+ */
 function calculateResult() {
     const resultField = document.getElementById('result');
     try {
-        resultField.value = eval(resultField.value) || '';
+        resultField.value = eval(resultField.value) || ''; // Avalia a expressão
     } catch (error) {
-        resultField.value = 'Erro'; // Mostra a mensagem de erro
+        resultField.value = 'Erro'; // Mostra mensagem de erro
     }
 }
