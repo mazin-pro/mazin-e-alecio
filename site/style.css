@@ -1,78 +1,133 @@
+/* Corpo da calculadora */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #222;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    background-color: #000000;
+    overflow: hidden;
 }
-
-.calculator {
-    background: #333;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    width: 350px;
-    height: 500px;
+#cal-body {
+    width: 300px;
+    border-radius: 10px;
+    background: linear-gradient(43deg, rgb(0, 0, 0) 0%, rgb(244, 245, 245) 46%, rgb(195, 196, 192) 100%);
+    box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45),
+                5px 5px 9px rgba(94, 104, 121, 0.3);
+    padding: 45px;
+    scale: 0.8;
+    margin: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 15px;
 }
 
-#result {
+/* Campo de entrada */
+.input input {
+
+   
+    height: 100px;
     width: 100%;
-    height: 80px;
+    border-radius: 10px;
+    background: #4e4c4c;
+    box-shadow: inset -5px -5px 9px rgba(27, 18, 18, 0.45),
+                inset 5px -5px 9px rgba(94, 104, 121, 0.3);
+    border: none;
+    color: rgb(83, 177, 103);
+    font-size: 1.7rem;
+    padding: 3px;
+    font-family: 'Press Start 2P', sans-serif;
     text-align: right;
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px;
-    background: #000;
-    color: #0f0;
-    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 1px #ffffff, 0 0 1px #ffffff, 0 0 7px #09db37;
+
+    
+    
 }
 
-/* Botões com estilo atualizado */
+.input input:focus {
+    outline: none;
+    background: #dde1e7;
+    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
+                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+
+/* Botões */
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 13px;
 }
 
-button {
-    margin: 12px;
-    height: 50px;
-    width: 100%; /* Ajusta largura para ocupar toda a célula */
-    border-radius: 10px;
-    background: #333;
-    justify-content: center;
-    align-items: center;
-    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #444,
-        inset -5px -5px 10px #222;
-    font-family: "Damion", cursive;
+.buttons button {
     cursor: pointer;
-    border: none;
-    font-size: 1.2em;
-    color: rgb(161, 161, 161);
-    transition: 500ms;
+    height: 60px;
+    width: 89px;
+    border: 0;
+    font-size: 2rem;
+    border-radius: 13px;
+    background: #dde1e7;
+    box-shadow: -2px -0px 9px rgba(255, 255, 255, 0.45),
+                1px 1px 1px rgba(94, 104, 121, 0.3);
+    color: rgb(137, 137, 137);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-button:hover {
-    box-shadow: -5px -5px 15px #444, 5px 5px 15px #222, inset 5px 5px 10px #222,
-        inset -5px -5px 10px #444;
-    color: #d6d6d6;
-    transition: 500ms;
+.buttons button:focus {
+    background: #dde1e7;
+    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
+                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
 }
 
-/* Botões de funções especiais */
-.equals {
-    grid-column: span 2;
-    background: #4caf50;
+.buttons button:active {
+    transform: scale(0.95);
+    box-shadow: inset -5px -5px 9px rgba(255, 255, 255, 0.45),
+                inset 5px 5px 9px rgba(94, 104, 121, 0.3);
+}
+
+/* Botão '0' ajustado */
+.buttons button[style*="flex: 2;"] {
+    width: calc(60px * 2 + 15px);
+    text-align: center;
+}
+
+/* Botões específicos */
+.btn-clear {
+    background: #ff6b6b; /* Vermelho */
+    color: white; /* Corrigido para texto branco */
+    box-shadow: -5px -5px 10px rgba(255, 200, 200, 0.6),
+                5px 5px 10px rgba(150, 0, 0, 0.3);
+}
+
+.btn-clear:hover {
+    background: #ff4c4c;
+    box-shadow: -3px -3px 5px rgba(255, 150, 150, 0.8),
+                3px 3px 5px rgba(150, 0, 0, 0.5);
+}
+
+.btn-delete {
+    background: #ffa502; /* Laranja */
+    color: white; /* Corrigido para texto branco */
+    box-shadow: -5px -5px 10px rgba(255, 220, 150, 0.6),
+                5px 5px 10px rgba(200, 100, 0, 0.3);
+}
+
+.btn-delete:hover {
+    background: #ff8c00;
+    box-shadow: -3px -3px 5px rgba(255, 200, 100, 0.8),
+                3px 3px 5px rgba(200, 80, 0, 0.5);
+}
+
+.btn-equal {
+    background: #1eff7c; /* Verde */
     color: white;
+    flex: 2; /* Ocupa mais espaço */
+    box-shadow: -5px -5px 10px rgba(200, 200, 255, 0.6),
+                5px 5px 10px rgba(0, 0, 150, 0.3);
 }
 
-.zero {
-    grid-column: span 2;
+.btn-equal:hover {
+    background: #1cd698;
+    box-shadow: -3px -3px 5px rgba(44, 211, 127, 0.8),
+                3px 3px 5px rgba(18, 54, 43, 0.5);
 }
